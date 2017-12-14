@@ -1,12 +1,13 @@
 package be.pxl.multithreading.voorbeeld1a;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class ListUsage {
 	public static void main(String... args) throws InterruptedException {
-        List<Integer> integers = new ArrayList<>();
+        List<Integer> integers = Collections.synchronizedList(new ArrayList<>());
         IntStream.rangeClosed(1, 10000).forEach(i -> integers.add(i));
         List<Thread> allThreads = new ArrayList<>();
         
